@@ -8,13 +8,31 @@
 import SwiftUI
 
 struct MainView: View {
+    // selected tab
+    @State private var menuEnumState: MenuEnum = .HarryPotter
+    @State var showMenu = true
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
+        ZStack {
+            LinearGradient(
+                gradient: .init(colors: [Color("background"), Color.clear]),
+                startPoint: .leading,
+                endPoint: .trailing
+            ).ignoresSafeArea()
+            
+            // side menu
+            MenuView(menuEnumState: $menuEnumState, showMenu: $showMenu)
+                
+            // list page
+            PagesView(showMenu: $showMenu, menuEnumState: $menuEnumState)
+                //.softOuterShadow(darkShadow: .yellow, lightShadow: .offWhite, offset: 0.5, radius: 3)
+        }
+        .overlay(
+            ZStack {
+                // more option
+            }
+            .padding()
+            ,alignment: .bottomLeading
+        )
     }
 }
