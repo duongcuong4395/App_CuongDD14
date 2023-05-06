@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    
     var body: some View {
-        Text("Hello, Main View!")
+        Button(action: {
+            authViewModel.signOut()
+        }, label: {
+            Text("Sign out")
+        })
+        
+        
     }
 }
 

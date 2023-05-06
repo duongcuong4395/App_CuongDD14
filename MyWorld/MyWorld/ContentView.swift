@@ -12,9 +12,14 @@ struct ContentView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     
     var body: some View {
-        switch authViewModel.state {
-            case .signedIn: MainView()
-            case .signedOut: AuthView()
+        ZStack {
+            switch authViewModel.state {
+                case .signedIn: MainView()
+                case .signedOut: AuthView()
+            }
+        }
+        .onAppear{
+            authViewModel.CheckUserLoggedIn()
         }
     }
 }
