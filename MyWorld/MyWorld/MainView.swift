@@ -6,16 +6,30 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MainView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     
     var body: some View {
-        Button(action: {
-            authViewModel.signOut()
-        }, label: {
-            Text("Sign out")
-        })
+        VStack {
+            Button(action: {
+                authViewModel.signOut()
+            }, label: {
+                Text("Sign out")
+            })
+            
+            Text(authViewModel.userLogin.email ?? "")
+            KFImage(authViewModel.userLogin.photoURL)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 68, height: 68)
+                .padding([.bottom, .trailing], 4)
+        }
+        .onAppear{
+            authViewModel.getUserLogin()
+        }
+        
         
         
     }

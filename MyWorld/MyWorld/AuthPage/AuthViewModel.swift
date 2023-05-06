@@ -66,11 +66,6 @@ class AuthenticationViewModel: NSObject, ObservableObject {
     func getUserLogin() {
         let user = FireBaseModel.shared.auth.currentUser
         if let user = user {
-            // User is signed in.
-            // The user's ID, unique to the Firebase project.
-            // Do NOT use this value to authenticate with your backend server,
-            // if you have one. Use getTokenWithCompletion:completion: instead.
-            
             userLogin.id = user.uid
             userLogin.email = user.email
             userLogin.photoURL = user.photoURL

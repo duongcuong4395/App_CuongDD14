@@ -30,54 +30,29 @@ struct AuthView: View {
     @State var alertTitel: String = ""
     @State var alertMessage: String = ""
     @State var errorMessage = ""
-
-    @State var show: Bool = true
     
     @State var souldShowImagePicker: Bool = false
     @State var avatarImage: UIImage?
+    
+    @State var showResetPassword: Bool = false
     
     var body: some View {
         ZStack {
             ZStack {
                 VStack {
-                    VStack {
-                        SignTextView()
-                            .padding(.horizontal, 10)
-                        if !isSignInOrUp {
-                            AvatarView()
+                    
+                    
+                    Group {
+                        
+                        if showResetPassword{
+                            RessetPassView()
+                        } else {
+                            if !isSignInOrUp {
+                                AvatarView()
+                                    //.opacity(!isSignInOrUp ? 1 : 0.001)
+                            }
+                            SignInAndUpView()
                         }
-                        
-                        TextfieldView(EPtype: $email, icon: "envelope.fill", text: "Email")
-                        LineView()
-                        TextfieldView(EPtype: $password, icon: "key.fill", text: "Password")
-
-                        HStack {
-                            Spacer()
-                            Text("Resset password")
-                                .bold()
-                                .font(.headline)
-                                .foregroundColor(.black)
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .padding(.horizontal, 30)
-                                .onTapGesture {
-                                    sentRessestPassword()
-                                }
-                        }
-                        
-                        SignInOrUpButtonView()
-                        
-                        HStack(spacing: 8) {
-                            
-                            Button(action: {
-                                viewModel.loginGG()
-                            }, label: {
-                                CustomButtonSocialView(isGoogle: true)
-                            })
-                            
-                        }
-                        .padding(.leading, -60)
-                        .frame(maxWidth: .infinity)
-                        
                     }
                     .frame(maxWidth: .infinity)
                     .background(.white)
@@ -89,16 +64,8 @@ struct AuthView: View {
                     .padding(.horizontal, 15)
                     
                     
-                                    }
-                VStack(alignment: .leading) {
-                    Spacer()
-                    HStack {
-                        ButtonSwitchSignView()
-                            .padding(.horizontal, 15)
-                        Spacer()
-                    }
-                    
                 }
+                Spacer()
             }
         }
         .background{
@@ -119,6 +86,9 @@ struct AuthView: View {
         .alert(isPresented: $showAlertView, content: {
             Alert(title: Text(alertTitel), message: Text(alertMessage), dismissButton: .cancel())
         })
+        .onAppear{
+            self.showResetPassword = false
+        }
     }
     
     
@@ -132,6 +102,98 @@ struct AuthView: View {
 
 // MARK: - Extension Views
 extension AuthView {
+    
+    // MARK: - SignInAndUpView
+    @ViewBuilder
+    func RessetPassView() -> some View{
+        VStack {
+            
+            HStack {
+                HStack{
+                    Text("Resset Password")
+                        .bold()
+                        .font(.title2)
+                        .foregroundColor(.black)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(height: 55)
+                    .padding(.horizontal, 10)
+            }
+            
+            TextfieldView(EPtype: $email, icon: "envelope.fill", text: "Email")
+            
+            Button(action: {
+                viewModel.sentRessestPassword(email: email)
+                self.showResetPassword.toggle()
+            }, label: {
+                Text("Resset Password")
+                    .bold()
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 50)
+                    .background(.black)
+                    .cornerRadius(15)
+                    .shadow(color: .black.opacity(0.2), radius: 4, x: 3, y: 4)
+                    .shadow(color: .black.opacity(0.2), radius: 4, x: -3, y: -4)
+            })
+            
+        }
+    }
+    
+    // MARK: - SignInAndUpView
+    @ViewBuilder
+    func SignInAndUpView() -> some View{
+        VStack {
+            
+            HStack {
+                SignTextView()
+                    .padding(.horizontal, 10)
+                
+                
+                Spacer()
+                HStack {
+                    ButtonSwitchSignView()
+                        .padding(.horizontal, 15)
+                    Spacer()
+                }
+            }
+            
+            TextfieldView(EPtype: $email, icon: "envelope.fill", text: "Email")
+            
+            LineView()
+            TextfieldView(EPtype: $password, icon: "key.fill", text: "Password")
+
+            HStack {
+                Spacer()
+                Text("Resset password")
+                    .bold()
+                    .font(.headline)
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.horizontal, 30)
+                    .onTapGesture {
+                        self.showResetPassword.toggle()
+                        //sentRessestPassword()
+                    }
+            }
+            
+            SignInOrUpButtonView()
+            
+            HStack(spacing: 8) {
+                
+                Button(action: {
+                    viewModel.loginGG()
+                }, label: {
+                    CustomButtonSocialView(isGoogle: true)
+                })
+                
+            }
+            .padding(.leading, -60)
+            .frame(maxWidth: .infinity)
+            
+        }
+    }
     
     // MARK: - SignTextView
     @ViewBuilder
@@ -216,7 +278,7 @@ extension AuthView {
         HStack {
             Group{
                 if isGoogle {
-                    Image("Google")
+                    Image("googleg")
                         .resizable()
                         .renderingMode(.template)
                 } else {
