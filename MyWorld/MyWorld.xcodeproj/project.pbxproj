@@ -13,6 +13,8 @@
 		4F1468042A05FB30000D0E68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1468032A05FB30000D0E68 /* Preview Assets.xcassets */; };
 		4F1468062A05FB30000D0E68 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1468052A05FB30000D0E68 /* Persistence.swift */; };
 		4F1468092A05FB30000D0E68 /* MyWorld.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F1468072A05FB30000D0E68 /* MyWorld.xcdatamodeld */; };
+		4F1468192A06001F000D0E68 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1468182A06001F000D0E68 /* AuthView.swift */; };
+		4F14681B2A060260000D0E68 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F14681A2A060260000D0E68 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		4F1468032A05FB30000D0E68 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4F1468052A05FB30000D0E68 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4F1468082A05FB30000D0E68 /* MyWorld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyWorld.xcdatamodel; sourceTree = "<group>"; };
+		4F1468182A06001F000D0E68 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		4F14681A2A060260000D0E68 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +59,14 @@
 		4F1467FB2A05FB2D000D0E68 /* MyWorld */ = {
 			isa = PBXGroup;
 			children = (
+				4F1468162A05FF60000D0E68 /* Resources */,
+				4F1468132A05FED1000D0E68 /* Themes */,
+				4F1468122A05FEBA000D0E68 /* Config */,
+				4F1468112A05FEA6000D0E68 /* Extentions */,
+				4F1468102A05FE97000D0E68 /* Support */,
+				4F14680F2A05FE4C000D0E68 /* Apps */,
 				4F1467FC2A05FB2D000D0E68 /* MyWorldApp.swift */,
 				4F1467FE2A05FB2D000D0E68 /* ContentView.swift */,
-				4F1468002A05FB30000D0E68 /* Assets.xcassets */,
 				4F1468052A05FB30000D0E68 /* Persistence.swift */,
 				4F1468072A05FB30000D0E68 /* MyWorld.xcdatamodeld */,
 				4F1468022A05FB30000D0E68 /* Preview Content */,
@@ -71,6 +80,75 @@
 				4F1468032A05FB30000D0E68 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4F14680F2A05FE4C000D0E68 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				4F1468152A05FEF3000D0E68 /* MainPage */,
+				4F1468142A05FEEA000D0E68 /* AuthPage */,
+			);
+			name = Apps;
+			sourceTree = "<group>";
+		};
+		4F1468102A05FE97000D0E68 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		4F1468112A05FEA6000D0E68 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		4F1468122A05FEBA000D0E68 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		4F1468132A05FED1000D0E68 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		4F1468142A05FEEA000D0E68 /* AuthPage */ = {
+			isa = PBXGroup;
+			children = (
+				4F1468172A05FFEA000D0E68 /* Login */,
+				4F1468182A06001F000D0E68 /* AuthView.swift */,
+			);
+			path = AuthPage;
+			sourceTree = "<group>";
+		};
+		4F1468152A05FEF3000D0E68 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				4F14681A2A060260000D0E68 /* MainView.swift */,
+			);
+			name = MainPage;
+			sourceTree = "<group>";
+		};
+		4F1468162A05FF60000D0E68 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4F1468002A05FB30000D0E68 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4F1468172A05FFEA000D0E68 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +222,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F1468062A05FB30000D0E68 /* Persistence.swift in Sources */,
+				4F14681B2A060260000D0E68 /* MainView.swift in Sources */,
+				4F1468192A06001F000D0E68 /* AuthView.swift in Sources */,
 				4F1467FF2A05FB2D000D0E68 /* ContentView.swift in Sources */,
 				4F1468092A05FB30000D0E68 /* MyWorld.xcdatamodeld in Sources */,
 				4F1467FD2A05FB2D000D0E68 /* MyWorldApp.swift in Sources */,
