@@ -11,6 +11,7 @@ import Firebase
 @main
 struct MyWorldApp: App {
     let persistenceController = PersistenceController.shared
+    @StateObject var authViewModel = AuthenticationViewModel()
 
     init() {
         FirebaseApp.configure()
@@ -19,7 +20,8 @@ struct MyWorldApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                //.environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(authViewModel)
         }
     }
 }

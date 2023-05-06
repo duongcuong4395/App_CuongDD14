@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 import GoogleSignIn
 import SwiftUI
@@ -42,6 +43,20 @@ class AuthenticationViewModel: NSObject, ObservableObject {
         }
     }
     
+    func loginEmailAndPass(email: String, password: String) {
+        
+        FireBaseModel.shared.auth.signIn(withEmail: email, password: password) { result, error in
+            guard error == nil  else {
+                self.CheckUserLoggedIn();
+                self.getUserLogin();
+                return
+            }
+            
+            self.CheckUserLoggedIn();
+            self.getUserLogin();
+        }
+    }
+    
     func loginGG() {
         signInWithGoogle();
         CheckUserLoggedIn();
@@ -49,7 +64,7 @@ class AuthenticationViewModel: NSObject, ObservableObject {
     }
     
     func getUserLogin() {
-        let user = Auth.auth().currentUser
+        let user = FireBaseModel.shared.auth.currentUser
         if let user = user {
             // User is signed in.
             // The user's ID, unique to the Firebase project.
@@ -72,9 +87,27 @@ class AuthenticationViewModel: NSObject, ObservableObject {
             print("No user Login")
         }
     }
+    
+    func signUp(email: String, password: String) {
+        FireBaseModel.shared.auth.createUser(withEmail: email, password: password) { result, error in
+            guard error == nil  else {
+                // Sign Up fail
+                return
+            }
+            // Sign Up Success
+        }
+    }
+    
+    func sentRessestPassword(email: String) {
+        FireBaseModel.shared.auth.sendPasswordReset(withEmail: email) { error in
+            guard error == nil  else {
+                // Sent fail
+                return
+            }
+            // Sent Success
+        }
+    }
 
-        
-    // 5
     func signOut() {
         GIDSignIn.sharedInstance.signOut()
         do {
@@ -89,9 +122,6 @@ class AuthenticationViewModel: NSObject, ObservableObject {
 
 
 extension AuthenticationViewModel {
-    
-    
-    
   func signInWithGoogle() {
     guard let clientID = FirebaseApp.app()?.options.clientID else {
       fatalError("No client ID found in Firebase configuration")
