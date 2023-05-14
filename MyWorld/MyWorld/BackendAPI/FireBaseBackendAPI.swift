@@ -33,15 +33,18 @@ class FireBaseBackendAPI<T : Codable>: NSObject, Codable {
                         print("New upload document successfully saved \(ref)")
                         onCompletion(true)
                     } catch let error {
+                        print ("FireBaseBackendAPI save")
                         print (error)
                         onCompletion(false)
                     }
                 }
             } else {
+                // Write log error
                 print("Type missing mandatory property \(docIdStr)")
                 onCompletion(false)
             }
         } catch let error {
+            // Write log error
             print(error)
         }
     }
@@ -51,6 +54,7 @@ class FireBaseBackendAPI<T : Codable>: NSObject, Codable {
           let typeNameStr = String(describing: T.self)
           Firestore.firestore().collection(typeNameStr).whereField("doc_id", isEqualTo: docId).getDocuments() { (query, error) in
               if let error = error {
+                  // Write log error
                   print(error)
               }
               if let query = query {
@@ -80,6 +84,7 @@ class FireBaseBackendAPI<T : Codable>: NSObject, Codable {
       var docs:[T] = []
       Firestore.firestore().collection(typeNameStr).whereField(getByField, isEqualTo: getByValue).getDocuments { query, error in
           if let error = error {
+              // Write log error
               onCompletion(nil, error)
           } else {
               for document in query!.documents {
@@ -101,6 +106,7 @@ class FireBaseBackendAPI<T : Codable>: NSObject, Codable {
                           
                       }
                   case .failure(let error):
+                      // Write log error
                       print("Error decoding Document \(error)")
                       onCompletion(nil, error)
                   }
@@ -126,12 +132,14 @@ class FireBaseBackendAPI<T : Codable>: NSObject, Codable {
                         print("New upload document successfully saved \(ref)")
                         onCompletion(true)
                     } catch let error {
+                        // Write log error
                         print("Type missing mandatory property \(docIdName) \(error)")
                         onCompletion(false)
                     }
                 }
             }
         } catch let error {
+            // Write log error
             print(error)
         }
     }
@@ -141,6 +149,7 @@ class FireBaseBackendAPI<T : Codable>: NSObject, Codable {
         let typeNameStr = String(describing: T.self)
         Firestore.firestore().collection(typeNameStr).whereField("doc_id", isEqualTo: docId).getDocuments { query, err in
             if let err = err {
+                // Write log error
                 print("Error deleting document: \(err)")
                 onCompletion(false)
             } else {

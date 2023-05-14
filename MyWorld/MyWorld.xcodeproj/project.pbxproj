@@ -43,6 +43,9 @@
 		4F1468092A05FB30000D0E68 /* MyWorld.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F1468072A05FB30000D0E68 /* MyWorld.xcdatamodeld */; };
 		4F1468192A06001F000D0E68 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1468182A06001F000D0E68 /* AuthView.swift */; };
 		4F14681B2A060260000D0E68 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F14681A2A060260000D0E68 /* MainView.swift */; };
+		4FB4644A2A10AF9C00BDFBF4 /* HarryBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB464492A10AF9C00BDFBF4 /* HarryBookModel.swift */; };
+		4FB4644D2A10B0EF00BDFBF4 /* HarryBookViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4644C2A10B0EF00BDFBF4 /* HarryBookViewModels.swift */; };
+		4FB464502A10B15200BDFBF4 /* HarryBookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4644F2A10B15200BDFBF4 /* HarryBookService.swift */; };
 		4FB7276E2A062DFC00A375D0 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7276D2A062DFC00A375D0 /* MenuModel.swift */; };
 		4FB727712A062ED200A375D0 /* HarryPotterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB727702A062ED200A375D0 /* HarryPotterView.swift */; };
 		4FB727732A062F4300A375D0 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB727722A062F4300A375D0 /* MenuView.swift */; };
@@ -66,6 +69,9 @@
 		4F1468082A05FB30000D0E68 /* MyWorld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyWorld.xcdatamodel; sourceTree = "<group>"; };
 		4F1468182A06001F000D0E68 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		4F14681A2A060260000D0E68 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4FB464492A10AF9C00BDFBF4 /* HarryBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarryBookModel.swift; sourceTree = "<group>"; };
+		4FB4644C2A10B0EF00BDFBF4 /* HarryBookViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarryBookViewModels.swift; sourceTree = "<group>"; };
+		4FB4644F2A10B15200BDFBF4 /* HarryBookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarryBookService.swift; sourceTree = "<group>"; };
 		4FB7276D2A062DFC00A375D0 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		4FB727702A062ED200A375D0 /* HarryPotterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarryPotterView.swift; sourceTree = "<group>"; };
 		4FB727722A062F4300A375D0 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -242,6 +248,30 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		4FB464482A10AF3C00BDFBF4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4FB464492A10AF9C00BDFBF4 /* HarryBookModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4FB4644B2A10B0D800BDFBF4 /* HarryBookViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4FB4644C2A10B0EF00BDFBF4 /* HarryBookViewModels.swift */,
+			);
+			name = HarryBookViewModels;
+			sourceTree = "<group>";
+		};
+		4FB4644E2A10B14200BDFBF4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4FB4644F2A10B15200BDFBF4 /* HarryBookService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		4FB727692A062D7500A375D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +302,9 @@
 		4FB7276F2A062E9700A375D0 /* HarryPotter */ = {
 			isa = PBXGroup;
 			children = (
+				4FB4644E2A10B14200BDFBF4 /* Services */,
+				4FB4644B2A10B0D800BDFBF4 /* HarryBookViewModels */,
+				4FB464482A10AF3C00BDFBF4 /* Models */,
 				4FB727702A062ED200A375D0 /* HarryPotterView.swift */,
 			);
 			name = HarryPotter;
@@ -410,9 +443,12 @@
 				4FB727732A062F4300A375D0 /* MenuView.swift in Sources */,
 				4FB727782A0630A100A375D0 /* TabButtonView.swift in Sources */,
 				4FB727812A06345E00A375D0 /* PageView.swift in Sources */,
+				4FB4644D2A10B0EF00BDFBF4 /* HarryBookViewModels.swift in Sources */,
 				4F1468092A05FB30000D0E68 /* MyWorld.xcdatamodeld in Sources */,
+				4FB464502A10B15200BDFBF4 /* HarryBookService.swift in Sources */,
 				4FB7276E2A062DFC00A375D0 /* MenuModel.swift in Sources */,
 				4F1467FD2A05FB2D000D0E68 /* MyWorldApp.swift in Sources */,
+				4FB4644A2A10AF9C00BDFBF4 /* HarryBookModel.swift in Sources */,
 				4FB727712A062ED200A375D0 /* HarryPotterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
