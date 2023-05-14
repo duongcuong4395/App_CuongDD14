@@ -6,33 +6,37 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MainView: View {
-    // selected tab
-    @State private var menuEnumState: MenuEnum = .HarryPotter
-    @State var showMenu = true
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
     
     var body: some View {
-        ZStack {
-            LinearGradient(
-                gradient: .init(colors: [Color("background"), Color.clear]),
-                startPoint: .leading,
-                endPoint: .trailing
-            ).ignoresSafeArea()
+        VStack {
+            Button(action: {
+                authViewModel.signOut()
+            }, label: {
+                Text("Sign out")
+            })
             
-            // side menu
-            MenuView(menuEnumState: $menuEnumState, showMenu: $showMenu)
-                
-            // list page
-            PagesView(showMenu: $showMenu, menuEnumState: $menuEnumState)
-                //.softOuterShadow(darkShadow: .yellow, lightShadow: .offWhite, offset: 0.5, radius: 3)
+            Text(authViewModel.userLogin.email ?? "")
+            KFImage(authViewModel.userLogin.photoURL)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 68, height: 68)
+                .padding([.bottom, .trailing], 4)
         }
-        .overlay(
-            ZStack {
-                // more option
-            }
-            .padding()
-            ,alignment: .bottomLeading
-        )
+        .onAppear{
+            authViewModel.getUserLogin()
+        }
+        
+        
+        
+    }
+}
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
     }
 }
