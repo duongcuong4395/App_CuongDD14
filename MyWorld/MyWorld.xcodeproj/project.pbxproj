@@ -35,9 +35,6 @@
 		4F0151D02A109D7E008B0675 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0151CF2A109D7E008B0675 /* FirebaseRemoteConfigSwift */; };
 		4F0151D22A109D7E008B0675 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0151D12A109D7E008B0675 /* FirebaseStorage */; };
 		4F0151D42A109D7E008B0675 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0151D32A109D7E008B0675 /* FirebaseStorageCombine-Community */; };
-		4F0151D72A10A134008B0675 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0151D62A10A134008B0675 /* SwiftProtobuf */; };
-		4F0151D92A10A134008B0675 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0151D82A10A134008B0675 /* SwiftProtobufPluginLibrary */; };
-		4F0151DB2A10A134008B0675 /* protoc-gen-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0151DA2A10A134008B0675 /* protoc-gen-swift */; };
 		4F1467FD2A05FB2D000D0E68 /* MyWorldApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1467FC2A05FB2D000D0E68 /* MyWorldApp.swift */; };
 		4F1467FF2A05FB2D000D0E68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1467FE2A05FB2D000D0E68 /* ContentView.swift */; };
 		4F1468012A05FB30000D0E68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1468002A05FB30000D0E68 /* Assets.xcassets */; };
@@ -105,8 +102,6 @@
 				4F0151D42A109D7E008B0675 /* FirebaseStorageCombine-Community in Frameworks */,
 				4F0151CE2A109D7E008B0675 /* FirebaseRemoteConfig in Frameworks */,
 				4F0151AA2A109D7E008B0675 /* FirebaseAppDistribution-Beta in Frameworks */,
-				4F0151D72A10A134008B0675 /* SwiftProtobuf in Frameworks */,
-				4F0151DB2A10A134008B0675 /* protoc-gen-swift in Frameworks */,
 				4F0151AE2A109D7E008B0675 /* FirebaseAuthCombine-Community in Frameworks */,
 				4F0151CC2A109D7E008B0675 /* FirebasePerformance in Frameworks */,
 				4F0151C42A109D7E008B0675 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
@@ -115,7 +110,6 @@
 				4F0151BA2A109D7E008B0675 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				4F0151CA2A109D7E008B0675 /* FirebaseMessaging in Frameworks */,
 				4F0151C62A109D7E008B0675 /* FirebaseInstallations in Frameworks */,
-				4F0151D92A10A134008B0675 /* SwiftProtobufPluginLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,9 +338,6 @@
 				4F0151CF2A109D7E008B0675 /* FirebaseRemoteConfigSwift */,
 				4F0151D12A109D7E008B0675 /* FirebaseStorage */,
 				4F0151D32A109D7E008B0675 /* FirebaseStorageCombine-Community */,
-				4F0151D62A10A134008B0675 /* SwiftProtobuf */,
-				4F0151D82A10A134008B0675 /* SwiftProtobufPluginLibrary */,
-				4F0151DA2A10A134008B0675 /* protoc-gen-swift */,
 				4FE468352A10A58D009A6991 /* Runtime */,
 			);
 			productName = MyWorld;
@@ -379,7 +370,6 @@
 			mainGroup = 4F1467F02A05FB2D000D0E68;
 			packageReferences = (
 				4F01519E2A109D7E008B0675 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				4F0151D52A10A134008B0675 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 				4FE468342A10A58D009A6991 /* XCRemoteSwiftPackageReference "Runtime" */,
 			);
 			productRefGroup = 4F1467FA2A05FB2D000D0E68 /* Products */;
@@ -634,14 +624,6 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		4F0151D52A10A134008B0675 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-protobuf.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		4FE468342A10A58D009A6991 /* XCRemoteSwiftPackageReference "Runtime" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wickwirew/Runtime.git";
@@ -787,21 +769,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4F01519E2A109D7E008B0675 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
-		};
-		4F0151D62A10A134008B0675 /* SwiftProtobuf */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F0151D52A10A134008B0675 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobuf;
-		};
-		4F0151D82A10A134008B0675 /* SwiftProtobufPluginLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F0151D52A10A134008B0675 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobufPluginLibrary;
-		};
-		4F0151DA2A10A134008B0675 /* protoc-gen-swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F0151D52A10A134008B0675 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = "protoc-gen-swift";
 		};
 		4FE468352A10A58D009A6991 /* Runtime */ = {
 			isa = XCSwiftPackageProductDependency;
